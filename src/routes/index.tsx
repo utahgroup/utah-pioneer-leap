@@ -20,7 +20,7 @@ import {
   Atom,
   Mail,
   MapPin,
-  Instagram,
+  
 } from "lucide-react";
 
 import heroCursos from "@/assets/hero-cursos.jpg";
