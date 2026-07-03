@@ -354,6 +354,16 @@ function History() {
               Agora um dos nossos maiores projetos é a pesquisa e desenvolvimento de{" "}
               <strong>algoritmos quânticos</strong> com foco em Segurança Cibernética.
             </p>
+            <div className="mt-10 flex justify-center md:justify-start">
+              <img
+                src={logoUtah}
+                alt="Logotipo Grupo Utah"
+                width={240}
+                height={220}
+                className="h-auto w-48 md:w-60"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
