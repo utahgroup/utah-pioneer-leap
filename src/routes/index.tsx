@@ -188,7 +188,7 @@ function Header() {
 function Hero() {
   const [active, setActive] = useState(0);
   return (
-    <section id="servicos" className="relative pt-16">
+    <section id="servicos" className="relative">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
