@@ -20,12 +20,14 @@ import {
   Atom,
   Mail,
   MapPin,
+  Instagram,
 } from "lucide-react";
 
 import heroCursos from "@/assets/hero-cursos.jpg";
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSeguranca from "@/assets/hero-seguranca.jpg";
 import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
+import logoUtah from "@/assets/logo-utah.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
