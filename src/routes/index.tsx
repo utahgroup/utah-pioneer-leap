@@ -192,9 +192,6 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
-              Desde 1999 · Pioneira em Linux no Brasil
-            </p>
             <h1 className="font-display text-5xl font-black leading-[0.95] tracking-tight text-[color:var(--ink)] md:text-7xl lg:text-8xl">
               Tecnologia séria
               <br />
