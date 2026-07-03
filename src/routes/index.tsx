@@ -643,11 +643,24 @@ function Footer() {
   );
 }
 
+function InstagramFab() {
+  return (
+    <a
+      href="https://www.instagram.com/grupoutah"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="Siga o Grupo Utah no Instagram"
+      className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105"
+    >
+      <Instagram className="h-7 w-7" />
+    </a>
+  );
+}
+
 function Index() {
   return (
     <div id="top" className="bg-white text-[color:var(--ink)]">
-      <Header />
-      <main className="pt-16">
+      <main>
         <Hero />
         <Marquee />
         <History />
@@ -655,6 +668,7 @@ function Index() {
         <Podcast />
       </main>
       <Footer />
+      <InstagramFab />
     </div>
   );
 }
