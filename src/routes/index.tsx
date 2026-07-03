@@ -654,16 +654,16 @@ function Footer() {
   );
 }
 
-function InstagramFab() {
+function WhatsAppFab() {
   return (
     <a
-      href="https://www.instagram.com/grupoutah"
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noreferrer noopener"
-      aria-label="Siga o Grupo Utah no Instagram"
+      aria-label="Fale com o Grupo Utah pelo WhatsApp"
       className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105"
     >
-      <Instagram className="h-7 w-7" />
+      <WhatsAppIcon className="h-7 w-7" />
     </a>
   );
 }
