@@ -493,10 +493,10 @@ function Podcast() {
   return (
     <section
       id="podcast"
-      className="relative overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
+      className="relative w-full overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
     >
       <div className="pointer-events-none absolute -right-40 top-0 h-96 w-96 rounded-full bg-[color:var(--red-brand)]/20 blur-3xl" />
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="px-6">
         <div className="grid gap-12 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
@@ -522,7 +522,7 @@ function Podcast() {
             </a>
           </div>
           <div className="md:col-span-5">
-            <div className="relative aspect-square overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
+            <div className="relative aspect-square overflow-hidden rounded-none border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
               <div className="flex h-full flex-col justify-between">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/50">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--red-brand)]" />
