@@ -433,9 +433,9 @@ function Newsletter() {
     setTimeout(() => setSent(false), 4000);
   }
   return (
-    <section className="bg-white py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-12 rounded-lg border border-neutral-200 bg-[color:var(--neutral-100)] p-8 md:grid-cols-12 md:p-16">
+    <section className="w-full bg-white py-24 md:py-32">
+      <div className="px-6">
+        <div className="grid gap-12 rounded-none border border-neutral-200 bg-[color:var(--neutral-100)] p-8 md:grid-cols-12 md:p-16">
           <div className="md:col-span-6">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
               Newsletter
