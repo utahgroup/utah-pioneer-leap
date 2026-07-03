@@ -689,7 +689,28 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
+        <div className="mt-16 border-t border-white/10 pt-10">
+          <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
+            Siga o Grupo Utah
+          </h3>
+          <ul className="mt-6 flex flex-wrap gap-3">
+            {socialLinks.map(({ label, href, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={label}
+                  className="grid h-12 w-12 place-items-center rounded-md border border-white/10 bg-white/[0.03] text-neutral-500 transition-colors hover:border-[color:var(--red-brand)] hover:bg-white/5 hover:text-[color:var(--red-brand)]"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
           <BrandMark className="text-xl text-white" />
           <p className="text-xs text-white/50">
             © 2026 Grupo Utah. Todos os direitos reservados.
