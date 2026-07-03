@@ -207,8 +207,16 @@ function LogoHero() {
   );
 }
 
+const WHATSAPP_SPECIALIST_URL =
+  "https://wa.me/5511969311515?text=" +
+  encodeURIComponent(
+    "Olá! Gostaria de mais informações sobre os serviços do Grupo Utah.",
+  );
+
 function Hero() {
   const [active, setActive] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
   return (
     <section id="servicos" className="relative w-full">
       <div className="w-full pb-10">
@@ -217,15 +225,19 @@ function Hero() {
             const isActive = i === active;
             const Icon = item.icon;
             return (
-              <button
+              <div
                 key={item.key}
-                type="button"
+                role="button"
+                tabIndex={0}
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") setActive(i);
+                }}
                 aria-label={item.title}
                 className={[
-                  "group relative overflow-hidden rounded-none text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
+                  "group relative cursor-pointer overflow-hidden rounded-none text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
                   "border border-white/5",
                   "md:h-full",
                   isActive ? "md:flex-[4]" : "md:flex-1",
@@ -292,17 +304,45 @@ function Hero() {
                     <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:text-base">
                       {item.desc}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setModalTitle(item.title);
+                        setModalOpen(true);
+                      }}
+                      className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--red-brand)]"
+                    >
                       Saber mais
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
+                    </button>
                   </div>
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>
       </div>
+
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl">{modalTitle}</DialogTitle>
+            <DialogDescription className="pt-2 text-base leading-relaxed text-neutral-700">
+              Este item está em desenvolvimento. Para maiores informações clique no botão abaixo, e fale com um de nossos especialistas.
+            </DialogDescription>
+          </DialogHeader>
+          <a
+            href={WHATSAPP_SPECIALIST_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mt-2 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#25D366] text-sm font-semibold text-white transition-colors hover:brightness-110"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            Falar com um especialista
+          </a>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
@@ -546,12 +586,12 @@ function Podcast() {
           </div>
           <div className="md:col-span-5">
             <div className="relative aspect-square overflow-hidden border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
-              <div className="flex h-full flex-col justify-between">
+              <div className="flex h-full flex-col">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/50">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--red-brand)]" />
                   On Air
                 </div>
-                <div className="flex flex-1 items-center justify-center">
+                <div className="flex flex-1 items-center justify-center pt-16 md:pt-20">
                   <img
                     src={tuxcastLogo.url}
                     alt="Logotipo TuxCast"
@@ -567,6 +607,40 @@ function Podcast() {
     </section>
   );
 }
+
+const InstagramIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.77.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14.33 4.9.13 5.77.07 7.05.01 8.33 0 8.74 0 12c0 3.26.01 3.67.07 4.95.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.31-.79-.72-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63 19.1.33 18.23.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" />
+  </svg>
+);
+const YoutubeIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z" />
+  </svg>
+);
+const LinkedInIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+  </svg>
+);
+const XIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
+const FacebookIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+    <path d="M24 12c0-6.63-5.37-12-12-12S0 5.37 0 12c0 6 4.39 10.97 10.13 11.87v-8.4H7.08V12h3.05V9.36c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.93-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.4C19.61 22.97 24 18 24 12z" />
+  </svg>
+);
+
+const socialLinks = [
+  { label: "Instagram", href: "https://www.instagram.com/grupoutah", Icon: InstagramIcon },
+  { label: "YouTube", href: "https://www.youtube.com/grupoutah", Icon: YoutubeIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/grupoutah", Icon: LinkedInIcon },
+  { label: "X (Twitter)", href: "https://www.x.com/grupoutah", Icon: XIcon },
+  { label: "Facebook", href: "https://www.facebook.com/grupoutah", Icon: FacebookIcon },
+];
 
 function Footer() {
   const col1 = [
@@ -649,7 +723,28 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
+        <div className="mt-16 border-t border-white/10 pt-10">
+          <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
+            Siga o Grupo Utah
+          </h3>
+          <ul className="mt-6 flex flex-wrap gap-3">
+            {socialLinks.map(({ label, href, Icon }) => (
+              <li key={label}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label={label}
+                  className="grid h-12 w-12 place-items-center rounded-md border border-white/10 bg-white/[0.03] text-neutral-500 transition-colors hover:border-[color:var(--red-brand)] hover:bg-white/5 hover:text-[color:var(--red-brand)]"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
           <BrandMark className="text-xl text-white" />
           <p className="text-xs text-white/50">
             © 2026 Grupo Utah. Todos os direitos reservados.
