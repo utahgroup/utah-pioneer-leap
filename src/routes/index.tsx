@@ -28,6 +28,7 @@ import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSeguranca from "@/assets/hero-seguranca.jpg";
 import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
 import logoUtah from "@/assets/logo-utah.png";
+import tuxcastLogo from "@/assets/tuxcast-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -187,13 +188,13 @@ function Header() {
 
 function LogoHero() {
   return (
-    <section className="logo-hero-bg relative flex min-h-[60vh] items-center justify-center md:min-h-[70vh]">
+    <section className="logo-hero-bg relative flex min-h-[70vh] items-center justify-center md:min-h-[85vh]">
       <img
         src={logoUtah}
         alt="Logotipo Grupo Utah"
-        width={500}
-        height={300}
-        className="relative z-10 h-auto w-64 md:w-96"
+        width={1200}
+        height={720}
+        className="relative z-10 h-auto w-[32rem] max-w-[92vw] md:w-[48rem]"
         loading="eager"
       />
     </section>
@@ -349,13 +350,13 @@ function History() {
               Agora um dos nossos maiores projetos é a pesquisa e desenvolvimento de{" "}
               <strong>algoritmos quânticos</strong> com foco em Segurança Cibernética.
             </p>
-            <div className="mt-10 flex justify-center md:justify-start">
+            <div className="mt-10 flex justify-center">
               <img
                 src={logoUtah}
                 alt="Logotipo Grupo Utah"
-                width={240}
+                width={320}
                 height={220}
-                className="h-auto w-48 md:w-60"
+                className="h-auto w-56 md:w-72"
                 loading="lazy"
               />
             </div>
