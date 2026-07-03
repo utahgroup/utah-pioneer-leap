@@ -680,7 +680,7 @@ function Index() {
         <Podcast />
       </main>
       <Footer />
-      <InstagramFab />
+      <WhatsAppFab />
     </div>
   );
 }
