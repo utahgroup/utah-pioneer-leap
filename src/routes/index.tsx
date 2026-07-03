@@ -586,12 +586,12 @@ function Podcast() {
           </div>
           <div className="md:col-span-5">
             <div className="relative aspect-square overflow-hidden border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
-              <div className="flex h-full flex-col justify-between">
+              <div className="flex h-full flex-col">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/50">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--red-brand)]" />
                   On Air
                 </div>
-                <div className="flex flex-1 items-center justify-center">
+                <div className="flex flex-1 items-center justify-center pt-16 md:pt-20">
                   <img
                     src={tuxcastLogo.url}
                     alt="Logotipo TuxCast"
