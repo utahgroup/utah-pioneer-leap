@@ -207,8 +207,16 @@ function LogoHero() {
   );
 }
 
+const WHATSAPP_SPECIALIST_URL =
+  "https://wa.me/5511969311515?text=" +
+  encodeURIComponent(
+    "Olá! Gostaria de mais informações sobre os serviços do Grupo Utah.",
+  );
+
 function Hero() {
   const [active, setActive] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
   return (
     <section id="servicos" className="relative w-full">
       <div className="w-full pb-10">
@@ -217,15 +225,19 @@ function Hero() {
             const isActive = i === active;
             const Icon = item.icon;
             return (
-              <button
+              <div
                 key={item.key}
-                type="button"
+                role="button"
+                tabIndex={0}
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") setActive(i);
+                }}
                 aria-label={item.title}
                 className={[
-                  "group relative overflow-hidden rounded-none text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
+                  "group relative cursor-pointer overflow-hidden rounded-none text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
                   "border border-white/5",
                   "md:h-full",
                   isActive ? "md:flex-[4]" : "md:flex-1",
@@ -292,17 +304,45 @@ function Hero() {
                     <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:text-base">
                       {item.desc}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setModalTitle(item.title);
+                        setModalOpen(true);
+                      }}
+                      className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--red-brand)]"
+                    >
                       Saber mais
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </span>
+                    </button>
                   </div>
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>
       </div>
+
+      <Dialog open={modalOpen} onOpenChange={setModalOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle className="font-display text-2xl">{modalTitle}</DialogTitle>
+            <DialogDescription className="pt-2 text-base leading-relaxed text-neutral-700">
+              Este item está em desenvolvimento. Para maiores informações clique no botão abaixo, e fale com um de nossos especialistas.
+            </DialogDescription>
+          </DialogHeader>
+          <a
+            href={WHATSAPP_SPECIALIST_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mt-2 inline-flex h-12 w-full items-center justify-center gap-2 rounded-md bg-[#25D366] text-sm font-semibold text-white transition-colors hover:brightness-110"
+          >
+            <WhatsAppIcon className="h-5 w-5" />
+            Falar com um especialista
+          </a>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
