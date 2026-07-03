@@ -185,31 +185,26 @@ function Header() {
   );
 }
 
+function LogoHero() {
+  return (
+    <section className="logo-hero-bg relative flex min-h-[60vh] items-center justify-center md:min-h-[70vh]">
+      <img
+        src={logoUtah}
+        alt="Logotipo Grupo Utah"
+        width={500}
+        height={300}
+        className="relative z-10 h-auto w-64 md:w-96"
+        loading="eager"
+      />
+    </section>
+  );
+}
+
 function Hero() {
   const [active, setActive] = useState(0);
   return (
-    <section id="servicos" className="relative">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid gap-10 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-8">
-            <h1 className="font-display text-5xl font-black leading-[0.95] tracking-tight text-[color:var(--ink)] md:text-7xl lg:text-8xl">
-              Tecnologia séria
-              <br />
-              para quem constrói
-              <br />
-              <span className="text-[color:var(--red-brand)]">carreira</span>, não emprego.
-            </h1>
-          </div>
-          <div className="md:col-span-4">
-            <p className="text-base leading-relaxed text-neutral-600 md:text-lg">
-              Consultoria e escola de TI especializada em Software Livre, Cibersegurança
-              e pesquisa em Computação Quântica. Escolha por onde começar.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-[1600px] px-4 pb-10">
+    <section id="servicos" className="relative w-full">
+      <div className="w-full pb-10">
         <div className="flex h-[560px] w-full flex-col gap-2 md:h-[600px] md:flex-row">
           {heroItems.map((item, i) => {
             const isActive = i === active;
@@ -223,7 +218,7 @@ function Hero() {
                 onClick={() => setActive(i)}
                 aria-label={item.title}
                 className={[
-                  "group relative overflow-hidden rounded-md text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
+                  "group relative overflow-hidden rounded-none text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
                   "border border-white/5",
                   "md:h-full",
                   isActive ? "md:flex-[4]" : "md:flex-1",
@@ -328,8 +323,8 @@ function Marquee() {
 
 function History() {
   return (
-    <section id="historia" className="relative bg-[color:var(--neutral-100)] py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="historia" className="relative w-full bg-[color:var(--neutral-100)] py-24 md:py-32">
+      <div>
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
@@ -438,9 +433,9 @@ function Newsletter() {
     setTimeout(() => setSent(false), 4000);
   }
   return (
-    <section className="bg-white py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="grid gap-12 rounded-lg border border-neutral-200 bg-[color:var(--neutral-100)] p-8 md:grid-cols-12 md:p-16">
+    <section className="w-full bg-white py-24 md:py-32">
+      <div className="px-6">
+        <div className="grid gap-12 rounded-none border border-neutral-200 bg-[color:var(--neutral-100)] p-8 md:grid-cols-12 md:p-16">
           <div className="md:col-span-6">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
               Newsletter
@@ -498,10 +493,10 @@ function Podcast() {
   return (
     <section
       id="podcast"
-      className="relative overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
+      className="relative w-full overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
     >
       <div className="pointer-events-none absolute -right-40 top-0 h-96 w-96 rounded-full bg-[color:var(--red-brand)]/20 blur-3xl" />
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="px-6">
         <div className="grid gap-12 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
@@ -527,7 +522,7 @@ function Podcast() {
             </a>
           </div>
           <div className="md:col-span-5">
-            <div className="relative aspect-square overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
+            <div className="relative aspect-square overflow-hidden rounded-none border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
               <div className="flex h-full flex-col justify-between">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/50">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--red-brand)]" />
@@ -569,8 +564,8 @@ function Footer() {
     { label: "Nossos clientes", href: "https://utah.com.br/consultoria/clientes/" },
   ];
   return (
-    <footer id="contato" className="bg-[color:var(--ink)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+    <footer id="contato" className="w-full bg-[color:var(--ink)] text-white">
+      <div className="px-6 py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-3">
             <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
@@ -661,6 +656,7 @@ function Index() {
   return (
     <div id="top" className="bg-white text-[color:var(--ink)]">
       <main>
+        <LogoHero />
         <Hero />
         <Marquee />
         <History />
