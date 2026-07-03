@@ -185,31 +185,26 @@ function Header() {
   );
 }
 
+function LogoHero() {
+  return (
+    <section className="logo-hero-bg relative flex min-h-[60vh] items-center justify-center md:min-h-[70vh]">
+      <img
+        src={logoUtah}
+        alt="Logotipo Grupo Utah"
+        width={500}
+        height={300}
+        className="relative z-10 h-auto w-64 md:w-96"
+        loading="eager"
+      />
+    </section>
+  );
+}
+
 function Hero() {
   const [active, setActive] = useState(0);
   return (
-    <section id="servicos" className="relative">
-      <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
-        <div className="grid gap-10 md:grid-cols-12 md:items-end">
-          <div className="md:col-span-8">
-            <h1 className="font-display text-5xl font-black leading-[0.95] tracking-tight text-[color:var(--ink)] md:text-7xl lg:text-8xl">
-              Tecnologia séria
-              <br />
-              para quem constrói
-              <br />
-              <span className="text-[color:var(--red-brand)]">carreira</span>, não emprego.
-            </h1>
-          </div>
-          <div className="md:col-span-4">
-            <p className="text-base leading-relaxed text-neutral-600 md:text-lg">
-              Consultoria e escola de TI especializada em Software Livre, Cibersegurança
-              e pesquisa em Computação Quântica. Escolha por onde começar.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-[1600px] px-4 pb-10">
+    <section id="servicos" className="relative w-full">
+      <div className="w-full pb-10">
         <div className="flex h-[560px] w-full flex-col gap-2 md:h-[600px] md:flex-row">
           {heroItems.map((item, i) => {
             const isActive = i === active;
@@ -223,7 +218,7 @@ function Hero() {
                 onClick={() => setActive(i)}
                 aria-label={item.title}
                 className={[
-                  "group relative overflow-hidden rounded-md text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
+                  "group relative overflow-hidden rounded-none text-left transition-all duration-500 ease-[cubic-bezier(0.65,0,0.35,1)]",
                   "border border-white/5",
                   "md:h-full",
                   isActive ? "md:flex-[4]" : "md:flex-1",
