@@ -20,7 +20,7 @@ import {
   Atom,
   Mail,
   MapPin,
-  Instagram,
+  
 } from "lucide-react";
 
 import heroCursos from "@/assets/hero-cursos.jpg";
@@ -28,6 +28,7 @@ import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSeguranca from "@/assets/hero-seguranca.jpg";
 import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
 import logoUtah from "@/assets/logo-utah.png";
+import tuxcastLogo from "@/assets/tuxcast-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -187,13 +188,13 @@ function Header() {
 
 function LogoHero() {
   return (
-    <section className="logo-hero-bg relative flex min-h-[60vh] items-center justify-center md:min-h-[70vh]">
+    <section className="logo-hero-bg relative flex min-h-[70vh] items-center justify-center md:min-h-[85vh]">
       <img
         src={logoUtah}
         alt="Logotipo Grupo Utah"
-        width={500}
-        height={300}
-        className="relative z-10 h-auto w-64 md:w-96"
+        width={1200}
+        height={720}
+        className="relative z-10 h-auto w-[32rem] max-w-[92vw] md:w-[48rem]"
         loading="eager"
       />
     </section>
@@ -349,13 +350,13 @@ function History() {
               Agora um dos nossos maiores projetos é a pesquisa e desenvolvimento de{" "}
               <strong>algoritmos quânticos</strong> com foco em Segurança Cibernética.
             </p>
-            <div className="mt-10 flex justify-center md:justify-start">
+            <div className="mt-10 flex justify-center">
               <img
                 src={logoUtah}
                 alt="Logotipo Grupo Utah"
-                width={240}
+                width={320}
                 height={220}
-                className="h-auto w-48 md:w-60"
+                className="h-auto w-56 md:w-72"
                 loading="lazy"
               />
             </div>
@@ -425,17 +426,29 @@ function History() {
 function Newsletter() {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
-  function submit(e: FormEvent) {
+  const [error, setError] = useState("");
+  async function submit(e: FormEvent) {
     e.preventDefault();
     if (!email) return;
-    setSent(true);
-    setEmail("");
-    setTimeout(() => setSent(false), 4000);
+    setError("");
+    try {
+      const res = await fetch("/api/public/newsletter", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error("fail");
+      setSent(true);
+      setEmail("");
+      setTimeout(() => setSent(false), 8000);
+    } catch {
+      setError("Não foi possível enviar agora. Tente novamente em instantes.");
+    }
   }
   return (
     <section className="w-full bg-white py-24 md:py-32">
-      <div className="px-6">
-        <div className="grid gap-12 rounded-none border border-neutral-200 bg-[color:var(--neutral-100)] p-8 md:grid-cols-12 md:p-16">
+      <div className="w-full">
+        <div className="grid gap-12 border-y border-neutral-200 bg-[color:var(--neutral-100)] p-8 md:grid-cols-12 md:p-16">
           <div className="md:col-span-6">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
               Newsletter
@@ -472,9 +485,13 @@ function Newsletter() {
               </button>
             </form>
             {sent && (
-              <p className="mt-3 text-sm text-[color:var(--red-brand)]">
-                Recebido. Obrigado por assinar!
+              <p className="mt-4 rounded-md border border-[color:var(--red-brand)]/30 bg-white p-4 text-sm font-semibold text-[color:var(--ink)]">
+                Parabéns! Agora você ficará por dentro de tudo que rola na cena de
+                Tecnologia do Mundo.
               </p>
+            )}
+            {error && (
+              <p className="mt-3 text-sm text-[color:var(--red-brand)]">{error}</p>
             )}
           </div>
         </div>
@@ -496,7 +513,7 @@ function Podcast() {
       className="relative w-full overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
     >
       <div className="pointer-events-none absolute -right-40 top-0 h-96 w-96 rounded-full bg-[color:var(--red-brand)]/20 blur-3xl" />
-      <div className="px-6">
+      <div className="px-6 md:px-12">
         <div className="grid gap-12 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
@@ -522,20 +539,19 @@ function Podcast() {
             </a>
           </div>
           <div className="md:col-span-5">
-            <div className="relative aspect-square overflow-hidden rounded-none border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
+            <div className="relative aspect-square overflow-hidden border border-white/10 bg-gradient-to-br from-neutral-900 to-black p-10">
               <div className="flex h-full flex-col justify-between">
                 <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-white/50">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[color:var(--red-brand)]" />
                   On Air
                 </div>
-                <div>
-                  <div className="font-display text-[6rem] font-black leading-none text-white md:text-[8rem]">
-                    TUX
-                    <span className="text-[color:var(--red-brand)]">.</span>
-                  </div>
-                  <div className="mt-2 font-display text-2xl font-bold text-white/60">
-                    CAST
-                  </div>
+                <div className="flex flex-1 items-center justify-center">
+                  <img
+                    src={tuxcastLogo.url}
+                    alt="Logotipo TuxCast"
+                    className="h-auto w-full max-w-[280px]"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
@@ -638,16 +654,16 @@ function Footer() {
   );
 }
 
-function InstagramFab() {
+function WhatsAppFab() {
   return (
     <a
-      href="https://www.instagram.com/grupoutah"
+      href={WHATSAPP_URL}
       target="_blank"
       rel="noreferrer noopener"
-      aria-label="Siga o Grupo Utah no Instagram"
+      aria-label="Fale com o Grupo Utah pelo WhatsApp"
       className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105"
     >
-      <Instagram className="h-7 w-7" />
+      <WhatsAppIcon className="h-7 w-7" />
     </a>
   );
 }
@@ -664,7 +680,7 @@ function Index() {
         <Podcast />
       </main>
       <Footer />
-      <InstagramFab />
+      <WhatsAppFab />
     </div>
   );
 }
