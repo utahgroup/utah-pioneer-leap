@@ -656,6 +656,7 @@ function Index() {
   return (
     <div id="top" className="bg-white text-[color:var(--ink)]">
       <main>
+        <LogoHero />
         <Hero />
         <Marquee />
         <History />
