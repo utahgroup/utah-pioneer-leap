@@ -324,7 +324,7 @@ function Marquee() {
 function History() {
   return (
     <section id="historia" className="relative w-full bg-[color:var(--neutral-100)] py-24 md:py-32">
-      <div className="px-6">
+      <div>
         <div className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-5">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
