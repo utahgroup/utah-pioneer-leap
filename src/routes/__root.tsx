@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica.",
       },
       { name: "author", content: "Grupo Utah" },
-      { property: "og:title", content: "Grupo Utah — Pioneira em Linux no Brasil" },
+      { property: "og:title", content: "Grupo Utah — Pioneira em Linux no Brasil | Consultoria & Escola de TI" },
       {
         property: "og:description",
         content:
@@ -92,6 +92,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Grupo Utah — Pioneira em Linux no Brasil | Consultoria & Escola de TI" },
+      { name: "description", content: "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica." },
+      { property: "og:description", content: "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica." },
+      { name: "twitter:description", content: "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98895d92-da56-4f72-adc2-ac3c304c4cfd/id-preview-fd010fa5--143cfa3d-48a0-4420-9a94-34fb84381e1c.lovable.app-1783095732585.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98895d92-da56-4f72-adc2-ac3c304c4cfd/id-preview-fd010fa5--143cfa3d-48a0-4420-9a94-34fb84381e1c.lovable.app-1783095732585.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
