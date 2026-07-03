@@ -20,8 +20,14 @@ import {
   Atom,
   Mail,
   MapPin,
-  
 } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 import heroCursos from "@/assets/hero-cursos.jpg";
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
