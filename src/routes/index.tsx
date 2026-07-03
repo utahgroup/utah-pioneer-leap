@@ -564,8 +564,8 @@ function Footer() {
     { label: "Nossos clientes", href: "https://utah.com.br/consultoria/clientes/" },
   ];
   return (
-    <footer id="contato" className="bg-[color:var(--ink)] text-white">
-      <div className="mx-auto max-w-7xl px-6 py-20">
+    <footer id="contato" className="w-full bg-[color:var(--ink)] text-white">
+      <div className="px-6 py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-3">
             <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
