@@ -20,12 +20,14 @@ import {
   Atom,
   Mail,
   MapPin,
+  Instagram,
 } from "lucide-react";
 
 import heroCursos from "@/assets/hero-cursos.jpg";
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSeguranca from "@/assets/hero-seguranca.jpg";
 import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
+import logoUtah from "@/assets/logo-utah.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -186,13 +188,10 @@ function Header() {
 function Hero() {
   const [active, setActive] = useState(0);
   return (
-    <section id="servicos" className="relative pt-16">
+    <section id="servicos" className="relative">
       <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-8">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--red-brand)]">
-              Desde 1999 · Pioneira em Linux no Brasil
-            </p>
             <h1 className="font-display text-5xl font-black leading-[0.95] tracking-tight text-[color:var(--ink)] md:text-7xl lg:text-8xl">
               Tecnologia séria
               <br />
@@ -355,6 +354,16 @@ function History() {
               Agora um dos nossos maiores projetos é a pesquisa e desenvolvimento de{" "}
               <strong>algoritmos quânticos</strong> com foco em Segurança Cibernética.
             </p>
+            <div className="mt-10 flex justify-center md:justify-start">
+              <img
+                src={logoUtah}
+                alt="Logotipo Grupo Utah"
+                width={240}
+                height={220}
+                className="h-auto w-48 md:w-60"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
@@ -634,11 +643,24 @@ function Footer() {
   );
 }
 
+function InstagramFab() {
+  return (
+    <a
+      href="https://www.instagram.com/grupoutah"
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label="Siga o Grupo Utah no Instagram"
+      className="fixed bottom-6 right-6 z-50 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105"
+    >
+      <Instagram className="h-7 w-7" />
+    </a>
+  );
+}
+
 function Index() {
   return (
     <div id="top" className="bg-white text-[color:var(--ink)]">
-      <Header />
-      <main className="pt-16">
+      <main>
         <Hero />
         <Marquee />
         <History />
@@ -646,6 +668,7 @@ function Index() {
         <Podcast />
       </main>
       <Footer />
+      <InstagramFab />
     </div>
   );
 }
