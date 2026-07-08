@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CursosTreinamentosRouteImport } from './routes/cursos.treinamentos'
 import { Route as ApiPublicNewsletterRouteImport } from './routes/api/public/newsletter'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CursosTreinamentosRoute = CursosTreinamentosRouteImport.update({
+  id: '/cursos/treinamentos',
+  path: '/cursos/treinamentos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicNewsletterRoute = ApiPublicNewsletterRouteImport.update({
@@ -25,27 +31,31 @@ const ApiPublicNewsletterRoute = ApiPublicNewsletterRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cursos/treinamentos': typeof CursosTreinamentosRoute
   '/api/public/newsletter': typeof ApiPublicNewsletterRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cursos/treinamentos': typeof CursosTreinamentosRoute
   '/api/public/newsletter': typeof ApiPublicNewsletterRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cursos/treinamentos': typeof CursosTreinamentosRoute
   '/api/public/newsletter': typeof ApiPublicNewsletterRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/newsletter'
+  fullPaths: '/' | '/cursos/treinamentos' | '/api/public/newsletter'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/newsletter'
-  id: '__root__' | '/' | '/api/public/newsletter'
+  to: '/' | '/cursos/treinamentos' | '/api/public/newsletter'
+  id: '__root__' | '/' | '/cursos/treinamentos' | '/api/public/newsletter'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CursosTreinamentosRoute: typeof CursosTreinamentosRoute
   ApiPublicNewsletterRoute: typeof ApiPublicNewsletterRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cursos/treinamentos': {
+      id: '/cursos/treinamentos'
+      path: '/cursos/treinamentos'
+      fullPath: '/cursos/treinamentos'
+      preLoaderRoute: typeof CursosTreinamentosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/newsletter': {
@@ -70,18 +87,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CursosTreinamentosRoute: CursosTreinamentosRoute,
   ApiPublicNewsletterRoute: ApiPublicNewsletterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
