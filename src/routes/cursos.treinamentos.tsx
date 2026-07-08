@@ -21,10 +21,11 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import heroCursos from "@/assets/hero-cursos.jpg";
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
-import heroSeguranca from "@/assets/hero-seguranca.jpg";
-import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
+import heroSkillsDev from "@/assets/hero-skills-dev.jpg";
+import heroAuthority from "@/assets/hero-authority.jpg";
+import hero5StarsGoogle from "@/assets/hero-5-stars-google.jpg";
+import studentKnowledge from "@/assets/student-knowledge.jpg";
 import logoUtah from "@/assets/logo-utah.png";
 
 export const Route = createFileRoute("/cursos/treinamentos")({
