@@ -609,13 +609,13 @@ function Conversion() {
             <span className="text-[color:var(--red-brand)]">Compre agora Online!</span>
           </h3>
           <p className="mt-4 text-neutral-600">Invista agora na sua carreira.</p>
-          <ol className="mt-6 grid gap-3">
+          <ol className="mt-6 grid gap-1.5">
             {steps.map((s) => (
               <li
                 key={s.n}
-                className="flex items-center gap-4 rounded-md border border-neutral-200 bg-[color:var(--neutral-100)] px-4 py-3"
+                className="flex items-center gap-3 rounded-md border border-neutral-200 bg-[color:var(--neutral-100)] px-3 py-2"
               >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[color:var(--ink)] font-display text-sm font-black text-white">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[color:var(--ink)] font-display text-xs font-black text-white">
                   {s.n}
                 </span>
                 <span className="text-sm font-medium text-[color:var(--ink)]">
