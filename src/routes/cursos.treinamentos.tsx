@@ -677,7 +677,7 @@ function Conversion() {
             Quero investir agora na minha carreira!
             <ArrowRight className="h-4 w-4" />
           </a>
-          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
+          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200 md:mt-auto">
             <img
               src={studentKnowledge}
               alt="Conquista profissional e investimento em carreira"
