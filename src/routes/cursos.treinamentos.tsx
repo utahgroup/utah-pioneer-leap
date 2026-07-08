@@ -656,7 +656,7 @@ function Conversion() {
           </a>
           <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
             <img
-              src={heroDesenvolvimento}
+              src={studentKnowledge}
               alt="Conquista profissional e investimento em carreira"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
