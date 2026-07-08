@@ -212,8 +212,8 @@ function Carousel() {
               className={[
                 "max-w-4xl font-display font-black leading-[1.05] tracking-tight",
                 "highlight" in s && s.highlight
-                  ? "text-white text-2xl md:text-4xl"
-                  : "text-white text-2xl md:text-4xl",
+                  ? "text-white text-3xl md:text-5xl"
+                  : "text-white text-3xl md:text-5xl",
               ].join(" ")}
             >
               {s.key === "cinco" ? (
