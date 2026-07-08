@@ -204,15 +204,15 @@ function Carousel() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/60 to-black/85" />
           <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 md:px-12">
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
               {s.eyebrow}
             </p>
             <h2
               className={[
                 "max-w-4xl font-display font-black leading-[1.05] tracking-tight",
                 "highlight" in s && s.highlight
-                  ? "text-white text-3xl md:text-6xl"
-                  : "text-white text-3xl md:text-6xl",
+                  ? "text-white text-2xl md:text-4xl"
+                  : "text-white text-2xl md:text-4xl",
               ].join(" ")}
             >
               {s.key === "cinco" ? (
