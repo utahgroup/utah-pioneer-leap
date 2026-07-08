@@ -11,7 +11,7 @@ import {
   Infinity as InfinityIcon,
   Network,
   Star,
-  Users,
+  
   GraduationCap,
   Briefcase,
   Sparkles,
