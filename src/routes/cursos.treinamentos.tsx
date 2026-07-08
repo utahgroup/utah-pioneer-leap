@@ -251,7 +251,7 @@ function Carousel() {
                 {s.features.map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-2 text-sm text-white backdrop-blur"
+                    className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-2 text-base text-white backdrop-blur"
                   >
                     <Star className="h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
                     {f}
