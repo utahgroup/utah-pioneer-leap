@@ -11,20 +11,19 @@ import {
   Infinity as InfinityIcon,
   Network,
   Star,
-  Users,
+  
   GraduationCap,
   Briefcase,
   Sparkles,
   MapPin,
-  Plus,
-  Minus,
   ArrowRight,
 } from "lucide-react";
 
-import heroCursos from "@/assets/hero-cursos.jpg";
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
-import heroSeguranca from "@/assets/hero-seguranca.jpg";
-import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
+import heroSkillsDev from "@/assets/hero-skills-dev.jpg";
+import heroAuthority from "@/assets/hero-authority.jpg";
+import hero5StarsGoogle from "@/assets/hero-5-stars-google.jpg";
+import studentKnowledge from "@/assets/student-knowledge.jpg";
 import logoUtah from "@/assets/logo-utah.png";
 
 export const Route = createFileRoute("/cursos/treinamentos")({
@@ -127,7 +126,7 @@ function Header() {
 const slides = [
   {
     key: "planos",
-    image: heroCursos,
+    image: heroConsultoria,
     eyebrow: "Planos de Carreira",
     title:
       "Se em 3 anos, seguindo nossos planos, você não chegar nos 5 dígitos, devolvemos seu dinheiro corrigido.",
@@ -143,13 +142,13 @@ const slides = [
   },
   {
     key: "skills",
-    image: heroDesenvolvimento,
+    image: heroSkillsDev,
     eyebrow: "Hard Skills × Soft Skills",
     title: "Competência Técnica Admite, Competência Comportamental Demite.",
   },
   {
     key: "compara",
-    image: heroConsultoria,
+    image: heroAuthority,
     eyebrow: "Diferenciais",
     title: "Quem Compara, escolhe UTAH!",
     features: [
@@ -164,7 +163,7 @@ const slides = [
   },
   {
     key: "cinco",
-    image: heroSeguranca,
+    image: hero5StarsGoogle,
     eyebrow: "Reconhecimento",
     title: "A única escola 5 estrelas no Google",
     stats: [
@@ -203,15 +202,15 @@ function Carousel() {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/60 to-black/85" />
           <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col justify-center px-6 md:px-12">
-            <p className="mb-6 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
+            <p className="mb-6 text-sm font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
               {s.eyebrow}
             </p>
             <h2
               className={[
                 "max-w-4xl font-display font-black leading-[1.05] tracking-tight",
                 "highlight" in s && s.highlight
-                  ? "text-white text-3xl md:text-6xl"
-                  : "text-white text-3xl md:text-6xl",
+                  ? "text-white text-2xl md:text-4xl"
+                  : "text-white text-2xl md:text-4xl",
               ].join(" ")}
             >
               {s.key === "cinco" ? (
@@ -237,7 +236,7 @@ function Carousel() {
                 {s.badges.map((b) => (
                   <li
                     key={b}
-                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur"
+                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur"
                   >
                     {b}
                   </li>
@@ -250,7 +249,7 @@ function Carousel() {
                 {s.features.map((f) => (
                   <li
                     key={f}
-                    className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-2 text-sm text-white backdrop-blur"
+                    className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-2 text-base text-white backdrop-blur"
                   >
                     <Star className="h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
                     {f}
@@ -331,20 +330,20 @@ function Carousel() {
 function Methodology() {
   return (
     <section className="w-full bg-white py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center md:px-10">
-        <div>
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-5 md:items-center md:px-10">
+        <div className="md:col-span-2">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
             Metodologia
           </p>
-          <h2 className="font-display text-3xl font-black leading-tight tracking-tight text-[color:var(--ink)] md:text-5xl">
+          <h2 className="font-display text-xl font-black leading-tight tracking-tight text-[color:var(--ink)] md:text-3xl">
             Quer saber mais da metodologia{" "}
             <span className="font-black text-[color:var(--red-brand)]">DILDIP</span>{" "}
             <span className="text-neutral-700">(Didactic in Learning, Direct in Practice)</span>{" "}
             desenvolvida pela Utah, e porque quem compara sempre nos escolhe?
           </h2>
-          <p className="mt-6 text-lg text-neutral-600">Dá uma olhada no vídeo ao lado.</p>
+          <p className="mt-4 text-sm text-neutral-600">Dá uma olhada no vídeo ao lado.</p>
         </div>
-        <div className="relative aspect-video w-full overflow-hidden rounded-md border border-neutral-200 shadow-xl shadow-black/10">
+        <div className="relative aspect-video w-full overflow-hidden rounded-md border border-neutral-200 shadow-xl shadow-black/10 md:col-span-3">
           <iframe
             className="absolute inset-0 h-full w-full"
             src="https://www.youtube.com/embed/VIDEO_ID"
@@ -403,7 +402,7 @@ function CounterItem({
   const n = useCountUp(value, ref);
   return (
     <div ref={ref} className="text-center">
-      <div className="font-display text-4xl font-black text-[color:var(--red-brand)] md:text-6xl">
+      <div className="font-display text-3xl font-black text-[color:var(--red-brand)] md:text-4xl">
         {prefix}
         {n.toLocaleString("pt-BR")}
         {suffix}
@@ -418,12 +417,18 @@ function CounterItem({
 function Numbers() {
   return (
     <section className="w-full border-y border-neutral-200 bg-[color:var(--neutral-100)] py-16">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-10 divide-neutral-300 px-6 md:grid-cols-4 md:divide-x md:px-10">
-        <CounterItem value={26} label="anos" />
-        <CounterItem value={87986} prefix="+" label="alunos formados" />
-        <CounterItem value={14745} prefix="+" label="projetos Open Source" />
-        <div className="text-center">
-          <div className="font-display text-3xl font-black text-[color:var(--ink)] md:text-4xl">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 items-center gap-y-10 px-6 md:grid-cols-4 md:gap-x-4 md:px-10">
+        <div className="md:border-r md:border-neutral-300 md:px-6">
+          <CounterItem value={26} label="anos" />
+        </div>
+        <div className="md:border-r md:border-neutral-300 md:px-6">
+          <CounterItem value={87986} prefix="+" label="alunos formados" />
+        </div>
+        <div className="md:border-r md:border-neutral-300 md:px-6">
+          <CounterItem value={14745} prefix="+" label="projetos Open Source" />
+        </div>
+        <div className="md:px-6 text-center">
+          <div className="font-display text-2xl font-black text-[color:var(--ink)] md:text-3xl">
             Pioneira em <span className="text-[color:var(--red-brand)]">Linux</span>
           </div>
           <div className="mt-2 text-xs font-semibold uppercase tracking-widest text-neutral-500">
@@ -474,100 +479,79 @@ const planos = [
 ];
 
 function Planos() {
-  const [openKey, setOpenKey] = useState<string | null>("linux");
   return (
-    <section id="planos" className="w-full bg-white py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
+    <section
+      id="planos"
+      className="relative w-full overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
+    >
+      {/* wave / gradient backdrop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse at 20% 0%, rgba(228,0,43,0.35), transparent 55%), radial-gradient(ellipse at 90% 100%, rgba(228,0,43,0.20), transparent 55%), url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 600' preserveAspectRatio='none'%3E%3Cpath fill='none' stroke='%23ffffff' stroke-opacity='0.08' stroke-width='1' d='M0,320 C240,420 480,180 720,260 C960,340 1200,220 1440,300'/%3E%3Cpath fill='none' stroke='%23ffffff' stroke-opacity='0.05' stroke-width='1' stroke-dasharray='4 8' d='M0,420 C240,500 480,300 720,380 C960,460 1200,340 1440,420'/%3E%3C/svg%3E\")",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover, cover, 100% 100%",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-6 md:px-10">
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
           Planos de Carreira
         </p>
-        <h2 className="max-w-4xl font-display text-3xl font-black leading-[1.05] tracking-tight text-[color:var(--ink)] md:text-5xl">
+        <h2 className="max-w-4xl font-display text-3xl font-black leading-[1.05] tracking-tight text-white md:text-5xl">
           Chegou a hora de você deixar de ter um{" "}
           <span className="text-[color:var(--red-brand)]">emprego</span> e começar a
           construir uma <span className="text-[color:var(--red-brand)]">Carreira</span>{" "}
           na Área de TI!
         </h2>
 
-        <div className="mt-14 grid gap-4 md:grid-cols-5">
-          {planos.map((p) => {
-            const isOpen = openKey === p.key;
+        <div className="mt-14 grid auto-rows-fr gap-6 md:grid-cols-6">
+          {planos.map((p, idx) => {
             const Icon = p.Icon;
+            // top row: 3 cards spanning 2 cols each; bottom row: 2 cards spanning 3 cols each
+            const span = idx < 3 ? "md:col-span-2" : "md:col-span-3";
             return (
-              <div
+              <article
                 key={p.key}
                 className={[
-                  "col-span-1 md:col-span-1",
-                  isOpen ? "md:col-span-5" : "",
+                  "group flex h-full flex-col rounded-lg border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-all",
+                  "hover:-translate-y-1 hover:border-[color:var(--red-brand)] hover:bg-white/[0.07]",
+                  span,
                 ].join(" ")}
               >
-                <button
-                  type="button"
-                  onClick={() => setOpenKey(isOpen ? null : p.key)}
-                  className={[
-                    "group flex w-full items-center justify-between gap-4 rounded-md border p-5 text-left transition-all",
-                    isOpen
-                      ? "border-[color:var(--red-brand)] bg-[color:var(--ink)] text-white"
-                      : "border-neutral-200 bg-white text-[color:var(--ink)] hover:border-[color:var(--red-brand)]",
-                  ].join(" ")}
-                  aria-expanded={isOpen}
-                >
-                  <span className="flex items-center gap-3">
-                    <span
-                      className={[
-                        "grid h-11 w-11 shrink-0 place-items-center rounded-md",
-                        isOpen
-                          ? "bg-[color:var(--red-brand)] text-white"
-                          : "bg-[color:var(--neutral-100)] text-[color:var(--red-brand)]",
-                      ].join(" ")}
-                    >
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block font-display text-base font-black uppercase tracking-wide">
-                        {p.name}
-                      </span>
-                      <span
-                        className={[
-                          "block text-xs",
-                          isOpen ? "text-white/60" : "text-neutral-500",
-                        ].join(" ")}
-                      >
-                        {p.cursos.length} cursos inclusos
-                      </span>
-                    </span>
+                <div className="mb-6 flex items-center gap-4">
+                  <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md bg-[color:var(--red-brand)] text-white shadow-lg shadow-[color:var(--red-brand)]/30">
+                    <Icon className="h-7 w-7" />
                   </span>
-                  {isOpen ? (
-                    <Minus className="h-5 w-5 shrink-0" />
-                  ) : (
-                    <Plus className="h-5 w-5 shrink-0" />
-                  )}
-                </button>
-                <div
-                  className={[
-                    "grid transition-all duration-500 ease-out",
-                    isOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-                  ].join(" ")}
-                >
-                  <div className="overflow-hidden">
-                    <div className="rounded-md border border-neutral-200 bg-[color:var(--neutral-100)] p-6">
-                      <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-neutral-500">
-                        Cursos que compõem o {p.name}
-                      </p>
-                      <ul className="grid gap-2 sm:grid-cols-2 md:grid-cols-4">
-                        {p.cursos.map((c) => (
-                          <li
-                            key={c}
-                            className="flex items-center gap-3 rounded-md border border-neutral-200 bg-white px-4 py-3 text-sm font-medium text-[color:var(--ink)]"
-                          >
-                            <GraduationCap className="h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
-                            {c}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+                  <h3 className="font-display text-xl font-black uppercase tracking-wide text-white md:text-2xl">
+                    {p.name}
+                  </h3>
                 </div>
-              </div>
+                <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/50">
+                  {p.cursos.length} cursos inclusos
+                </p>
+                <ul className="mb-6 flex flex-1 flex-col gap-2">
+                  {p.cursos.map((c) => (
+                    <li
+                      key={c}
+                      className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-3 text-sm font-medium text-white"
+                    >
+                      <GraduationCap className="h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WHATSAPP_CARREIRA}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="mt-auto inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-white/5 px-5 py-3 text-xs font-black uppercase tracking-wider text-white transition-colors hover:border-[color:var(--red-brand)] hover:bg-[color:var(--red-brand)]"
+                >
+                  Quero este plano
+                  <ArrowRight className="h-4 w-4" />
+                </a>
+              </article>
             );
           })}
         </div>
@@ -609,15 +593,10 @@ function Conversion() {
           <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
             <img
               src={heroConsultoria}
-              alt="Mentoria e consultoria de carreira Grupo Utah"
+              alt="Consultoria de carreira Grupo Utah"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white">
-              <Users className="h-4 w-4 text-[color:var(--red-brand)]" />
-              Mentoria humana
-            </div>
           </div>
         </div>
 
@@ -630,13 +609,13 @@ function Conversion() {
             <span className="text-[color:var(--red-brand)]">Compre agora Online!</span>
           </h3>
           <p className="mt-4 text-neutral-600">Invista agora na sua carreira.</p>
-          <ol className="mt-6 grid gap-3">
+          <ol className="mt-6 grid gap-1.5">
             {steps.map((s) => (
               <li
                 key={s.n}
-                className="flex items-center gap-4 rounded-md border border-neutral-200 bg-[color:var(--neutral-100)] px-4 py-3"
+                className="flex items-center gap-3 rounded-md border border-neutral-200 bg-[color:var(--neutral-100)] px-3 py-2"
               >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[color:var(--ink)] font-display text-sm font-black text-white">
+                <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[color:var(--ink)] font-display text-xs font-black text-white">
                   {s.n}
                 </span>
                 <span className="text-sm font-medium text-[color:var(--ink)]">
@@ -655,7 +634,7 @@ function Conversion() {
           </a>
           <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
             <img
-              src={heroDesenvolvimento}
+              src={studentKnowledge}
               alt="Conquista profissional e investimento em carreira"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
