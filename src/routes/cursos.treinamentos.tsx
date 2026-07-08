@@ -16,8 +16,6 @@ import {
   Briefcase,
   Sparkles,
   MapPin,
-  Plus,
-  Minus,
   ArrowRight,
 } from "lucide-react";
 
