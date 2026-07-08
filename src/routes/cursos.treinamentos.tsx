@@ -628,14 +628,21 @@ function Conversion() {
             <WhatsAppIcon className="h-5 w-5" />
             Falar com um Especialista em Carreira
           </a>
-          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
+          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200 md:mt-auto">
             <img
               src={heroConsultoria}
               alt="Consultoria de carreira Grupo Utah"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <p className="font-display text-2xl font-black uppercase tracking-tight text-white drop-shadow md:text-3xl">
+                É <span className="text-[color:var(--red-brand)]">#5D</span> OU NADA
+              </p>
+            </div>
           </div>
+
         </div>
 
         <div className="flex flex-col rounded-md border border-neutral-200 bg-white p-8 md:p-10">
