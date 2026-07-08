@@ -5,11 +5,13 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Terminal,
   ShieldCheck,
   Cloud,
   Infinity as InfinityIcon,
   Network,
+  Server,
   Star,
   
   GraduationCap,
@@ -18,6 +20,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
+
 
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSkillsDev from "@/assets/hero-skills-dev.jpg";
@@ -209,8 +212,8 @@ function Carousel() {
               className={[
                 "max-w-4xl font-display font-black leading-[1.05] tracking-tight",
                 "highlight" in s && s.highlight
-                  ? "text-white text-2xl md:text-4xl"
-                  : "text-white text-2xl md:text-4xl",
+                  ? "text-white text-3xl md:text-5xl"
+                  : "text-white text-3xl md:text-5xl",
               ].join(" ")}
             >
               {s.key === "cinco" ? (
@@ -476,9 +479,17 @@ const planos = [
     Icon: Network,
     cursos: ["Cisco CCNA", "Cisco CCNP", "Cisco CCIE"],
   },
+  {
+    key: "virt",
+    name: "Plano Virtualização",
+    Icon: Server,
+    cursos: ["LPIC-1", "Proxmox VE", "Proxmox PBS", "OpenShift"],
+  },
 ];
 
+
 function Planos() {
+  const [openKey, setOpenKey] = useState<string | null>(null);
   return (
     <section
       id="planos"
@@ -505,52 +516,78 @@ function Planos() {
           construir uma <span className="text-[color:var(--red-brand)]">Carreira</span>{" "}
           na Área de TI!
         </h2>
+        <p className="mt-4 text-sm text-white/60">
+          Clique em um plano para ver os cursos que fazem parte dele.
+        </p>
 
-        <div className="mt-14 grid auto-rows-fr gap-6 md:grid-cols-6">
-          {planos.map((p, idx) => {
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {planos.map((p) => {
             const Icon = p.Icon;
-            // top row: 3 cards spanning 2 cols each; bottom row: 2 cards spanning 3 cols each
-            const span = idx < 3 ? "md:col-span-2" : "md:col-span-3";
+            const isOpen = openKey === p.key;
             return (
               <article
                 key={p.key}
                 className={[
-                  "group flex h-full flex-col rounded-lg border border-white/10 bg-white/[0.04] p-8 backdrop-blur transition-all",
-                  "hover:-translate-y-1 hover:border-[color:var(--red-brand)] hover:bg-white/[0.07]",
-                  span,
+                  "group flex flex-col rounded-lg border bg-white/[0.04] backdrop-blur transition-all",
+                  isOpen
+                    ? "border-[color:var(--red-brand)] bg-white/[0.07]"
+                    : "border-white/10 hover:-translate-y-1 hover:border-[color:var(--red-brand)] hover:bg-white/[0.07]",
                 ].join(" ")}
               >
-                <div className="mb-6 flex items-center gap-4">
+                <button
+                  type="button"
+                  onClick={() => setOpenKey(isOpen ? null : p.key)}
+                  aria-expanded={isOpen}
+                  aria-controls={`plano-${p.key}`}
+                  className="flex w-full items-center gap-4 p-6 text-left"
+                >
                   <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md bg-[color:var(--red-brand)] text-white shadow-lg shadow-[color:var(--red-brand)]/30">
                     <Icon className="h-7 w-7" />
                   </span>
-                  <h3 className="font-display text-xl font-black uppercase tracking-wide text-white md:text-2xl">
+                  <h3 className="flex-1 font-display text-xl font-black uppercase tracking-wide text-white md:text-2xl">
                     {p.name}
                   </h3>
-                </div>
-                <p className="mb-5 text-xs font-semibold uppercase tracking-widest text-white/50">
-                  {p.cursos.length} cursos inclusos
-                </p>
-                <ul className="mb-6 flex flex-1 flex-col gap-2">
-                  {p.cursos.map((c) => (
-                    <li
-                      key={c}
-                      className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-3 text-sm font-medium text-white"
-                    >
-                      <GraduationCap className="h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={WHATSAPP_CARREIRA}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="mt-auto inline-flex items-center justify-center gap-2 rounded-md border border-white/20 bg-white/5 px-5 py-3 text-xs font-black uppercase tracking-wider text-white transition-colors hover:border-[color:var(--red-brand)] hover:bg-[color:var(--red-brand)]"
+                  <ChevronDown
+                    className={[
+                      "h-5 w-5 shrink-0 text-white/70 transition-transform",
+                      isOpen ? "rotate-180 text-[color:var(--red-brand)]" : "",
+                    ].join(" ")}
+                  />
+                </button>
+
+                <div
+                  id={`plano-${p.key}`}
+                  className={[
+                    "grid overflow-hidden px-6 transition-all duration-500 ease-in-out",
+                    isOpen ? "grid-rows-[1fr] pb-6 opacity-100" : "grid-rows-[0fr] opacity-0",
+                  ].join(" ")}
                 >
-                  Quero este plano
-                  <ArrowRight className="h-4 w-4" />
-                </a>
+                  <div className="min-h-0">
+                    <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">
+                      {p.cursos.length} cursos inclusos
+                    </p>
+                    <ul className="mb-6 flex flex-col gap-2">
+                      {p.cursos.map((c) => (
+                        <li
+                          key={c}
+                          className="flex items-center gap-3 rounded-md border border-white/10 bg-black/40 px-4 py-3 text-sm font-medium text-white"
+                        >
+                          <GraduationCap className="h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
+                          {c}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={WHATSAPP_CARREIRA}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-md border border-white/20 bg-white/5 px-5 py-3 text-xs font-black uppercase tracking-wider text-white transition-colors hover:border-[color:var(--red-brand)] hover:bg-[color:var(--red-brand)]"
+                    >
+                      Quero este plano
+                      <ArrowRight className="h-4 w-4" />
+                    </a>
+                  </div>
+                </div>
               </article>
             );
           })}
@@ -559,6 +596,7 @@ function Planos() {
     </section>
   );
 }
+
 
 function Conversion() {
   const steps = [
@@ -590,14 +628,21 @@ function Conversion() {
             <WhatsAppIcon className="h-5 w-5" />
             Falar com um Especialista em Carreira
           </a>
-          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
+          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200 md:mt-auto">
             <img
               src={heroConsultoria}
               alt="Consultoria de carreira Grupo Utah"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4">
+              <p className="font-display text-2xl font-black uppercase tracking-tight text-white drop-shadow md:text-3xl">
+                É <span className="text-[color:var(--red-brand)]">#5D</span> OU NADA
+              </p>
+            </div>
           </div>
+
         </div>
 
         <div className="flex flex-col rounded-md border border-neutral-200 bg-white p-8 md:p-10">
@@ -632,7 +677,7 @@ function Conversion() {
             Quero investir agora na minha carreira!
             <ArrowRight className="h-4 w-4" />
           </a>
-          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
+          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200 md:mt-auto">
             <img
               src={studentKnowledge}
               alt="Conquista profissional e investimento em carreira"
