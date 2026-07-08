@@ -332,20 +332,20 @@ function Carousel() {
 function Methodology() {
   return (
     <section className="w-full bg-white py-20 md:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center md:px-10">
-        <div>
+      <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-5 md:items-center md:px-10">
+        <div className="md:col-span-2">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[color:var(--red-brand)]">
             Metodologia
           </p>
-          <h2 className="font-display text-3xl font-black leading-tight tracking-tight text-[color:var(--ink)] md:text-5xl">
+          <h2 className="font-display text-xl font-black leading-tight tracking-tight text-[color:var(--ink)] md:text-3xl">
             Quer saber mais da metodologia{" "}
             <span className="font-black text-[color:var(--red-brand)]">DILDIP</span>{" "}
             <span className="text-neutral-700">(Didactic in Learning, Direct in Practice)</span>{" "}
             desenvolvida pela Utah, e porque quem compara sempre nos escolhe?
           </h2>
-          <p className="mt-6 text-lg text-neutral-600">Dá uma olhada no vídeo ao lado.</p>
+          <p className="mt-4 text-sm text-neutral-600">Dá uma olhada no vídeo ao lado.</p>
         </div>
-        <div className="relative aspect-video w-full overflow-hidden rounded-md border border-neutral-200 shadow-xl shadow-black/10">
+        <div className="relative aspect-video w-full overflow-hidden rounded-md border border-neutral-200 shadow-xl shadow-black/10 md:col-span-3">
           <iframe
             className="absolute inset-0 h-full w-full"
             src="https://www.youtube.com/embed/VIDEO_ID"
