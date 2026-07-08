@@ -593,15 +593,10 @@ function Conversion() {
           <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200">
             <img
               src={heroConsultoria}
-              alt="Mentoria e consultoria de carreira Grupo Utah"
+              alt="Consultoria de carreira Grupo Utah"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white">
-              <Users className="h-4 w-4 text-[color:var(--red-brand)]" />
-              Mentoria humana
-            </div>
           </div>
         </div>
 
