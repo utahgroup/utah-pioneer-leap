@@ -238,7 +238,7 @@ function Carousel() {
                 {s.badges.map((b) => (
                   <li
                     key={b}
-                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur"
+                    className="rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-white backdrop-blur"
                   >
                     {b}
                   </li>
