@@ -181,7 +181,7 @@ function Carousel() {
   const [i, setI] = useState(0);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   useEffect(() => {
-    timer.current = setInterval(() => setI((v) => (v + 1) % slides.length), 6500);
+    timer.current = setInterval(() => setI((v) => (v + 1) % slides.length), 5000);
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
@@ -628,18 +628,27 @@ function Conversion() {
             <WhatsAppIcon className="h-5 w-5" />
             Falar com um Especialista em Carreira
           </a>
-          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200 md:mt-auto">
-            <img
-              src={heroConsultoria}
-              alt="Consultoria de carreira Grupo Utah"
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute bottom-4 left-4 right-4">
-              <p className="font-display text-2xl font-black uppercase tracking-tight text-white drop-shadow md:text-3xl">
+          <p className="mt-4 text-sm font-medium text-[color:var(--ink)]">
+            Lembre-se, não estamos falando de um curso e sim de{" "}
+            <span className="font-semibold text-[color:var(--red-brand)]">Plano de Carreira</span>{" "}
+            capaz de levar você a salários de{" "}
+            <span className="font-semibold text-[color:var(--red-brand)]">R$ 10.000,00</span>{" "}
+            por mês em até{" "}
+            <span className="font-semibold text-[color:var(--red-brand)]">3 anos</span>.
+          </p>
+          <div className="relative mt-auto overflow-hidden rounded-md border border-neutral-200 pt-6">
+            <div className="relative h-56 overflow-hidden rounded-md">
+              <img
+                src={heroConsultoria}
+                alt="Consultoria de carreira Grupo Utah"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white">
+                <Sparkles className="h-4 w-4 text-[color:var(--red-brand)]" />
                 É <span className="text-[color:var(--red-brand)]">#5D</span> OU NADA
-              </p>
+              </div>
             </div>
           </div>
 
@@ -677,17 +686,19 @@ function Conversion() {
             Quero investir agora na minha carreira!
             <ArrowRight className="h-4 w-4" />
           </a>
-          <div className="relative mt-8 h-56 overflow-hidden rounded-md border border-neutral-200 md:mt-auto">
-            <img
-              src={studentKnowledge}
-              alt="Conquista profissional e investimento em carreira"
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-            <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white">
-              <Sparkles className="h-4 w-4 text-[color:var(--red-brand)]" />
-              Invista em você
+          <div className="relative mt-auto overflow-hidden rounded-md border border-neutral-200 pt-6">
+            <div className="relative h-56 overflow-hidden rounded-md">
+              <img
+                src={studentKnowledge}
+                alt="Conquista profissional e investimento em carreira"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white">
+                <Sparkles className="h-4 w-4 text-[color:var(--red-brand)]" />
+                Invista em você
+              </div>
             </div>
           </div>
         </div>
