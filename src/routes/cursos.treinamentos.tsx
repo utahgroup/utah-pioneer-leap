@@ -419,12 +419,18 @@ function CounterItem({
 function Numbers() {
   return (
     <section className="w-full border-y border-neutral-200 bg-[color:var(--neutral-100)] py-16">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 items-center gap-10 divide-neutral-300 px-6 md:grid-cols-4 md:divide-x md:px-10">
-        <CounterItem value={26} label="anos" />
-        <CounterItem value={87986} prefix="+" label="alunos formados" />
-        <CounterItem value={14745} prefix="+" label="projetos Open Source" />
-        <div className="text-center">
-          <div className="font-display text-3xl font-black text-[color:var(--ink)] md:text-4xl">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 items-center gap-y-10 px-6 md:grid-cols-4 md:gap-x-4 md:px-10">
+        <div className="md:border-r md:border-neutral-300 md:px-6">
+          <CounterItem value={26} label="anos" />
+        </div>
+        <div className="md:border-r md:border-neutral-300 md:px-6">
+          <CounterItem value={87986} prefix="+" label="alunos formados" />
+        </div>
+        <div className="md:border-r md:border-neutral-300 md:px-6">
+          <CounterItem value={14745} prefix="+" label="projetos Open Source" />
+        </div>
+        <div className="md:px-6 text-center">
+          <div className="font-display text-2xl font-black text-[color:var(--ink)] md:text-3xl">
             Pioneira em <span className="text-[color:var(--red-brand)]">Linux</span>
           </div>
           <div className="mt-2 text-xs font-semibold uppercase tracking-widest text-neutral-500">
