@@ -128,7 +128,7 @@ function Header() {
 const slides = [
   {
     key: "planos",
-    image: heroCursos,
+    image: heroConsultoria,
     eyebrow: "Planos de Carreira",
     title:
       "Se em 3 anos, seguindo nossos planos, você não chegar nos 5 dígitos, devolvemos seu dinheiro corrigido.",
@@ -144,13 +144,13 @@ const slides = [
   },
   {
     key: "skills",
-    image: heroDesenvolvimento,
+    image: heroSkillsDev,
     eyebrow: "Hard Skills × Soft Skills",
     title: "Competência Técnica Admite, Competência Comportamental Demite.",
   },
   {
     key: "compara",
-    image: heroConsultoria,
+    image: heroAuthority,
     eyebrow: "Diferenciais",
     title: "Quem Compara, escolhe UTAH!",
     features: [
@@ -165,7 +165,7 @@ const slides = [
   },
   {
     key: "cinco",
-    image: heroSeguranca,
+    image: hero5StarsGoogle,
     eyebrow: "Reconhecimento",
     title: "A única escola 5 estrelas no Google",
     stats: [
