@@ -861,7 +861,3 @@ function CursosTreinamentos() {
     </div>
   );
 }
-
-// Silence unused import warning for FileText/Video kept for future use
-void FileText;
-void Video;
