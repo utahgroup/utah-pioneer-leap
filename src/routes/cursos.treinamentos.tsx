@@ -404,7 +404,7 @@ function CounterItem({
   const n = useCountUp(value, ref);
   return (
     <div ref={ref} className="text-center">
-      <div className="font-display text-4xl font-black text-[color:var(--red-brand)] md:text-6xl">
+      <div className="font-display text-3xl font-black text-[color:var(--red-brand)] md:text-4xl">
         {prefix}
         {n.toLocaleString("pt-BR")}
         {suffix}
