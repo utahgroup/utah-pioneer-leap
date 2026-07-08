@@ -5,11 +5,13 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Terminal,
   ShieldCheck,
   Cloud,
   Infinity as InfinityIcon,
   Network,
+  Server,
   Star,
   
   GraduationCap,
@@ -18,6 +20,7 @@ import {
   MapPin,
   ArrowRight,
 } from "lucide-react";
+
 
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSkillsDev from "@/assets/hero-skills-dev.jpg";
