@@ -479,7 +479,14 @@ const planos = [
     Icon: Network,
     cursos: ["Cisco CCNA", "Cisco CCNP", "Cisco CCIE"],
   },
+  {
+    key: "virt",
+    name: "Plano Virtualização",
+    Icon: Server,
+    cursos: ["LPIC-1", "Proxmox VE", "Proxmox PBS", "OpenShift"],
+  },
 ];
+
 
 function Planos() {
   return (
