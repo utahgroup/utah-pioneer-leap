@@ -21,20 +21,14 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 import heroCursos from "@/assets/hero-cursos.jpg";
 import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSeguranca from "@/assets/hero-seguranca.jpg";
 import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
 import logoUtah from "@/assets/logo-utah.png";
-import tuxcastLogo from "@/assets/tuxcast-logo.png.asset.json";
+import tuxcastLogo from "@/assets/tuxcast-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -42,17 +36,10 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP_URL =
   "https://wa.me/5511969311515?text=" +
-  encodeURIComponent(
-    "Quero caminhar ao lado de gigantes, com a pioneira em Linux no Brasil!",
-  );
+  encodeURIComponent("Quero caminhar ao lado de gigantes, com a pioneira em Linux no Brasil!");
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    className={className}
-    fill="currentColor"
-  >
+  <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
     <path d="M20.52 3.48A11.86 11.86 0 0 0 12.05 0C5.5 0 .17 5.32.17 11.87c0 2.09.55 4.13 1.6 5.93L0 24l6.36-1.67a11.86 11.86 0 0 0 5.69 1.45h.01c6.55 0 11.88-5.32 11.88-11.87a11.8 11.8 0 0 0-3.42-8.43ZM12.06 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.77.99 1-3.67-.23-.38a9.87 9.87 0 0 1-1.52-5.28c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.13 1.03 7 2.9a9.83 9.83 0 0 1 2.9 6.99c0 5.45-4.44 9.88-9.88 9.88Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35Z" />
   </svg>
 );
@@ -218,9 +205,7 @@ function LogoHero() {
 
 const WHATSAPP_SPECIALIST_URL =
   "https://wa.me/5511969311515?text=" +
-  encodeURIComponent(
-    "Olá! Gostaria de mais informações sobre os serviços do Grupo Utah.",
-  );
+  encodeURIComponent("Olá! Gostaria de mais informações sobre os serviços do Grupo Utah.");
 
 function Hero() {
   const [active, setActive] = useState(0);
@@ -295,9 +280,7 @@ function Hero() {
                 <div
                   className={[
                     "absolute inset-0 flex flex-col justify-between p-6 md:p-10 transition-all duration-500",
-                    isActive
-                      ? "translate-y-0 opacity-100"
-                      : "pointer-events-none translate-y-4 opacity-0",
+                    isActive ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0",
                   ].join(" ")}
                 >
                   <div className="flex items-center justify-between">
@@ -310,9 +293,7 @@ function Hero() {
                     <h3 className="font-display text-3xl font-black leading-tight text-white md:text-5xl">
                       {item.title}
                     </h3>
-                    <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:text-base">
-                      {item.desc}
-                    </p>
+                    <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:text-base">{item.desc}</p>
                     {item.to ? (
                       <Link
                         to={item.to}
@@ -349,7 +330,8 @@ function Hero() {
           <DialogHeader>
             <DialogTitle className="font-display text-2xl">{modalTitle}</DialogTitle>
             <DialogDescription className="pt-2 text-base leading-relaxed text-neutral-700">
-              Este item está em desenvolvimento. Para maiores informações clique no botão abaixo, e fale com um de nossos especialistas.
+              Este item está em desenvolvimento. Para maiores informações clique no botão abaixo, e fale com um de
+              nossos especialistas.
             </DialogDescription>
           </DialogHeader>
           <a
@@ -398,19 +380,15 @@ function History() {
               Nossa história
             </p>
             <h2 className="font-display text-4xl font-black leading-[1.05] tracking-tight text-[color:var(--ink)] md:text-6xl">
-              De <span className="text-[color:var(--red-brand)]">Pioneira em Linux</span>{" "}
-              no Brasil à primeira consultoria em{" "}
-              <span className="text-[color:var(--red-brand)]">Quantum Computing</span>{" "}
-              Open Source.
+              De <span className="text-[color:var(--red-brand)]">Pioneira em Linux</span> no Brasil à primeira
+              consultoria em <span className="text-[color:var(--red-brand)]">Quantum Computing</span> Open Source.
             </h2>
           </div>
           <div className="md:col-span-6 md:col-start-7">
             <p className="text-lg leading-relaxed text-neutral-700">
-              Fundada em <strong>1999</strong>, o Grupo Utah iniciou sua história trazendo
-              as maiores empresas de Linux para o Brasil — <strong>Red Hat</strong> e{" "}
-              <strong>Canonical</strong>. Nossa jornada começou como especialista Open
-              Source, passando por Cloud Computing, Segurança Cibernética e Inteligência
-              Artificial.
+              Fundada em <strong>1999</strong>, o Grupo Utah iniciou sua história trazendo as maiores empresas de Linux
+              para o Brasil — <strong>Red Hat</strong> e <strong>Canonical</strong>. Nossa jornada começou como
+              especialista Open Source, passando por Cloud Computing, Segurança Cibernética e Inteligência Artificial.
             </p>
             <p className="mt-6 text-lg leading-relaxed text-neutral-700">
               Agora um dos nossos maiores projetos é a pesquisa e desenvolvimento de{" "}
@@ -435,10 +413,7 @@ function History() {
               <div className="absolute left-0 right-0 top-[46px] h-px bg-neutral-300" />
               <ol className="relative flex gap-6 overflow-x-auto pb-4">
                 {timeline.map(({ year, title, Icon }, idx) => (
-                  <li
-                    key={year}
-                    className="flex min-w-[160px] shrink-0 flex-col items-center text-center"
-                  >
+                  <li key={year} className="flex min-w-[160px] shrink-0 flex-col items-center text-center">
                     <div className="relative z-10 grid h-24 w-24 place-items-center rounded-full border border-neutral-200 bg-white shadow-sm transition-colors hover:border-[color:var(--red-brand)]">
                       <Icon
                         className={
@@ -448,9 +423,7 @@ function History() {
                         }
                       />
                     </div>
-                    <div className="mt-4 font-display text-2xl font-black text-[color:var(--red-brand)]">
-                      {year}
-                    </div>
+                    <div className="mt-4 font-display text-2xl font-black text-[color:var(--red-brand)]">{year}</div>
                     <div className="mt-1 max-w-[140px] text-xs font-semibold uppercase tracking-wider text-neutral-700">
                       {title}
                     </div>
@@ -472,12 +445,8 @@ function History() {
                     />
                   </div>
                   <div>
-                    <div className="font-display text-xl font-black text-[color:var(--red-brand)]">
-                      {year}
-                    </div>
-                    <div className="mt-0.5 text-sm font-semibold text-neutral-800">
-                      {title}
-                    </div>
+                    <div className="font-display text-xl font-black text-[color:var(--red-brand)]">{year}</div>
+                    <div className="mt-0.5 text-sm font-semibold text-neutral-800">{title}</div>
                   </div>
                 </li>
               ))}
@@ -520,14 +489,12 @@ function Newsletter() {
               Newsletter
             </p>
             <h2 className="font-display text-3xl font-black leading-tight tracking-tight text-[color:var(--ink)] md:text-5xl">
-              Fique por dentro das novidades do{" "}
-              <span className="text-[color:var(--red-brand)]">Grupo Utah</span>.
+              Fique por dentro das novidades do <span className="text-[color:var(--red-brand)]">Grupo Utah</span>.
             </h2>
           </div>
           <div className="md:col-span-6 md:pl-8">
             <p className="text-neutral-600">
-              Conteúdos sobre Open Source, Cibersegurança, IA e Computação Quântica direto
-              no seu e-mail. Sem spam.
+              Conteúdos sobre Open Source, Cibersegurança, IA e Computação Quântica direto no seu e-mail. Sem spam.
             </p>
             <form onSubmit={submit} className="mt-6 flex flex-col gap-3 sm:flex-row">
               <div className="relative flex-1">
@@ -552,13 +519,10 @@ function Newsletter() {
             </form>
             {sent && (
               <p className="mt-4 rounded-md border border-[color:var(--red-brand)]/30 bg-white p-4 text-sm font-semibold text-[color:var(--ink)]">
-                Parabéns! Agora você ficará por dentro de tudo que rola na cena de
-                Tecnologia do Mundo.
+                Parabéns! Agora você ficará por dentro de tudo que rola na cena de Tecnologia do Mundo.
               </p>
             )}
-            {error && (
-              <p className="mt-3 text-sm text-[color:var(--red-brand)]">{error}</p>
-            )}
+            {error && <p className="mt-3 text-sm text-[color:var(--red-brand)]">{error}</p>}
           </div>
         </div>
       </div>
@@ -574,10 +538,7 @@ const SpotifyIcon = ({ className }: { className?: string }) => (
 
 function Podcast() {
   return (
-    <section
-      id="podcast"
-      className="relative w-full overflow-hidden bg-[color:var(--ink)] py-24 md:py-32"
-    >
+    <section id="podcast" className="relative w-full overflow-hidden bg-[color:var(--ink)] py-24 md:py-32">
       <div className="pointer-events-none absolute -right-40 top-0 h-96 w-96 rounded-full bg-[color:var(--red-brand)]/20 blur-3xl" />
       <div className="px-6 md:px-12">
         <div className="grid gap-12 md:grid-cols-12 md:items-center">
@@ -586,12 +547,11 @@ function Podcast() {
               Podcast Grupo Utah
             </p>
             <h2 className="font-display text-4xl font-black leading-[1.05] tracking-tight text-white md:text-6xl">
-              Assista o nosso Podcast:{" "}
-              <span className="text-[color:var(--red-brand)]">TUXCAST</span>
+              Assista o nosso Podcast: <span className="text-[color:var(--red-brand)]">TUXCAST</span>
             </h2>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/70">
-              Conversas sem filtro sobre Linux, carreira em tecnologia, Cibersegurança e
-              o futuro da Computação Quântica no Brasil.
+              Conversas sem filtro sobre Linux, carreira em tecnologia, Cibersegurança e o futuro da Computação Quântica
+              no Brasil.
             </p>
             <a
               href="https://open.spotify.com/show/tuxcast"
@@ -613,7 +573,7 @@ function Podcast() {
                 </div>
                 <div className="flex flex-1 items-center justify-center pt-16 md:pt-20">
                   <img
-                    src={tuxcastLogo.url}
+                    src={tuxcastLogo}
                     alt="Logotipo TuxCast"
                     className="h-auto w-full max-w-[280px]"
                     loading="lazy"
@@ -684,9 +644,7 @@ function Footer() {
       <div className="px-6 py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-3">
-            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
-              Home
-            </h3>
+            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">Home</h3>
             <ul className="mt-6 space-y-3">
               {col1.map((l) => (
                 <li key={l.href}>
@@ -703,9 +661,7 @@ function Footer() {
             </ul>
           </div>
           <div className="md:col-span-3">
-            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
-              Consultoria
-            </h3>
+            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">Consultoria</h3>
             <ul className="mt-6 space-y-3">
               {col2.map((l) => (
                 <li key={l.href}>
@@ -722,9 +678,7 @@ function Footer() {
             </ul>
           </div>
           <div className="md:col-span-6">
-            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
-              Endereço
-            </h3>
+            <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">Endereço</h3>
             <p className="mt-6 flex items-start gap-3 text-sm text-white/80">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--red-brand)]" />
               Rua Cubatão, 436, CJ 41 — Paraíso, São Paulo
@@ -744,9 +698,7 @@ function Footer() {
         </div>
 
         <div className="mt-16 border-t border-white/10 pt-10">
-          <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">
-            Siga o Grupo Utah
-          </h3>
+          <h3 className="font-display text-xs font-bold uppercase tracking-[0.2em] text-white/50">Siga o Grupo Utah</h3>
           <ul className="mt-6 flex flex-wrap gap-3">
             {socialLinks.map(({ label, href, Icon }) => (
               <li key={label}>
@@ -766,9 +718,7 @@ function Footer() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:items-center">
           <BrandMark className="text-xl text-white" />
-          <p className="text-xs text-white/50">
-            © 2026 Grupo Utah. Todos os direitos reservados.
-          </p>
+          <p className="text-xs text-white/50">© 2026 Grupo Utah. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
