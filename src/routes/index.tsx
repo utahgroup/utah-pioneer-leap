@@ -57,7 +57,15 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const heroItems = [
+const heroItems: {
+  key: string;
+  number: string;
+  title: string;
+  desc: string;
+  icon: typeof GraduationCap;
+  image: string;
+  to?: "/cursos/treinamentos";
+}[] = [
   {
     key: "cursos",
     number: "01",
@@ -65,6 +73,7 @@ const heroItems = [
     desc: "Formações completas em Linux, DevOps, Cloud, Cibersegurança e IA — com metodologia própria de Soft + Hard Skills.",
     icon: GraduationCap,
     image: heroCursos,
+    to: "/cursos/treinamentos",
   },
   {
     key: "consultoria",
