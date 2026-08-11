@@ -304,18 +304,29 @@ function Hero() {
                     <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:text-base">
                       {item.desc}
                     </p>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setModalTitle(item.title);
-                        setModalOpen(true);
-                      }}
-                      className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--red-brand)]"
-                    >
-                      Saber mais
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </button>
+                    {item.to ? (
+                      <Link
+                        to={item.to}
+                        onClick={(e) => e.stopPropagation()}
+                        className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--red-brand)]"
+                      >
+                        Saber mais
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalTitle(item.title);
+                          setModalOpen(true);
+                        }}
+                        className="mt-6 inline-flex cursor-pointer items-center gap-2 text-sm font-semibold text-white hover:text-[color:var(--red-brand)]"
+                      >
+                        Saber mais
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
