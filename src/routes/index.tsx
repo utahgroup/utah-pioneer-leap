@@ -28,9 +28,34 @@ import heroConsultoria from "@/assets/hero-consultoria.jpg";
 import heroSeguranca from "@/assets/hero-seguranca.jpg";
 import heroDesenvolvimento from "@/assets/hero-desenvolvimento.jpg";
 import logoUtah from "@/assets/logo-utah.png";
-import tuxcastLogo from "@/assets/tuxcast-logo.png";
+import tuxcastAsset from "@/assets/tuxcast-logo.png.asset.json";
+
+const tuxcastLogo = tuxcastAsset.url;
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Grupo Utah | Cursos de Linux e Consultoria em TI" },
+      {
+        name: "description",
+        content: "Pioneira em Linux no Brasil desde 1999, o Grupo Utah oferece cursos e planos de carreira em TI, consultoria Open Source, Cloud e Segurança Cibernética.",
+      },
+      { property: "og:title", content: "Grupo Utah | Cursos de Linux e Consultoria em TI" },
+      {
+        property: "og:description",
+        content: "Conheça os cursos e planos de carreira em TI e a consultoria em Open Source, Cloud e Segurança Cibernética do Grupo Utah, pioneira em Linux desde 1999.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Grupo Utah" },
+      { property: "og:locale", content: "pt_BR" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Grupo Utah | Cursos de Linux e Consultoria em TI" },
+      {
+        name: "twitter:description",
+        content: "Conheça os cursos e planos de carreira em TI e a consultoria em Open Source, Cloud e Segurança Cibernética do Grupo Utah, pioneira em Linux desde 1999.",
+      },
+    ],
+  }),
   component: Index,
 });
 

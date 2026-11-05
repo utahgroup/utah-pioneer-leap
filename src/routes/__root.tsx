@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -34,7 +35,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -77,27 +78,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Grupo Utah — Pioneira em Linux no Brasil | Consultoria & Escola de TI" },
-      {
-        name: "description",
-        content:
-          "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica.",
-      },
       { name: "author", content: "Grupo Utah" },
-      { property: "og:title", content: "Grupo Utah — Pioneira em Linux no Brasil | Consultoria & Escola de TI" },
-      {
-        property: "og:description",
-        content:
-          "Da pioneira em Linux à primeira consultoria em Open Source Quantum Computing.",
-      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Grupo Utah" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Grupo Utah — Pioneira em Linux no Brasil | Consultoria & Escola de TI" },
-      { name: "description", content: "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica." },
-      { property: "og:description", content: "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica." },
-      { name: "twitter:description", content: "Consultoria e escola de TI, pioneira em Software Livre no Brasil desde 1999. Cursos, Cibersegurança, Cloud, IA e pesquisa em Computação Quântica." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98895d92-da56-4f72-adc2-ac3c304c4cfd/id-preview-fd010fa5--143cfa3d-48a0-4420-9a94-34fb84381e1c.lovable.app-1783095732585.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/98895d92-da56-4f72-adc2-ac3c304c4cfd/id-preview-fd010fa5--143cfa3d-48a0-4420-9a94-34fb84381e1c.lovable.app-1783095732585.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

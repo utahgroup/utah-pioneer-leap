@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep page-specific search and social metadata in each content route's `head()`; root holds only shared defaults so home metadata cannot leak into other pages.
